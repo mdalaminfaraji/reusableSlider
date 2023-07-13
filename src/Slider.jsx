@@ -8,17 +8,14 @@ const Slider = ({ slides }) => {
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    setCurrentSlide((prevSlide) =>prevSlide === slides.length-1 ? 0: prevSlide + 1);
   };
 
   return (
     <div className="relative">
-      {/* Display the current slide */}
       <div className='w-96 mx-auto'>
       <img src={slides[currentSlide]} alt="Slide" className="w-full" />
       </div>
-
-      {/* Add navigation buttons */}
       <button
         onClick={handlePrevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-emerald-600 p-2 rounded-full"
